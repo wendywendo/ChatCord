@@ -6,7 +6,7 @@ const { getRooms, roomCreate, addMemberToRoom, deleteRoom, updateRoom } = requir
 // Middleware
 router.use(cors({
     credentials: true,
-    origin: 'https://chat-cord-iota.vercel.app'
+    origin: 'https://chatcord-lemon.vercel.app'
 }))
 
 router.get('/', getRooms)

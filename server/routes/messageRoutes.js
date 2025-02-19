@@ -6,7 +6,7 @@ const { getAllMessages, createMessage } = require('../controllers/messagesContro
 // Middleware
 router.use(cors({
     credentials: true,
-    origin: 'https://chat-cord-iota.vercel.app'
+    origin: 'https://chatcord-lemon.vercel.app'
 }))
 
 router.post('/', getAllMessages)
