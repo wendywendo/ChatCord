@@ -23,7 +23,7 @@ export default function Navbar() {
         <div className="chat-header">
           <div className="appname">
             <div className="user-avatar">
-              <img src="/send.png?height=40&width=40" alt="Avatar" />
+              <img src={`../../assets/send.png?height=40&width=40`} alt="Avatar" />
             </div>
             <h1>ChatCord</h1>
           </div>
