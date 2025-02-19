@@ -1,0 +1,25 @@
+.home {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
+.rooms, .chats {
+  height: 100vh;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.rooms::-webkit-scrollbar,
+.chats::-webkit-scrollbar {
+  display: none;
+}
+
+.rooms {
+  flex: 1;
+  background-color: #f9f9f9;
+}
+
+.chats {
+  flex: 2;
+  background-color: #fff;
+}
