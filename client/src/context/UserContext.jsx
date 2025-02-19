@@ -12,7 +12,7 @@ export function UserContextProvider({ children }) {
     const [messages, setMessages] = useState([])
     const [loadingMessages, setLoadingMessages] = useState(false)
 
-    const BACKEND_URL = 'https://chatcord-x4lq.onrender.com'
+    const BACKEND_URL = 'https://chatcord-kyyy.onrender.com'
 
     const fetchMessages = async () => {
         setLoadingMessages(true)

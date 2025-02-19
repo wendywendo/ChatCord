@@ -24,7 +24,8 @@
     "react-router-dom": "^7.1.5",
     "react-toastify": "^11.0.3",
     "socket.io-client": "^4.8.1",
-    "sonner": "^2.0.0"
+    "sonner": "^2.0.0",
+    "vercel": "^41.1.4"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
