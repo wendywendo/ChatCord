@@ -8,7 +8,7 @@ import './Chats.css'
 
 function Chats() {
 
-    const { messages, setMessages, fetchMessages, loadingMessages, activeRoom } = useAuth()
+    const { messages, setMessages, fetchMessages, loadingMessages, activeRoom, user } = useAuth()
     const [message, setMessage] = useState('')
     const [typing, setTyping] = useState(false)
     const [typingUser, setTypingUser] = useState("")
@@ -61,7 +61,7 @@ function Chats() {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        socket.emit("chatMessage", message, activeRoom)
+        socket.emit("chatMessage", user, message, activeRoom)
 
         const {data} = await axios.post(`/messages/create`, {
             messageTxt: message,
@@ -107,11 +107,15 @@ function Chats() {
 
                         {
                             typeof m === 'object' ? (
-                                <Message 
-                                    key={m._id}
-                                    from={m.from.username}
-                                    message={m.message}
-                                />
+                                <>
+
+                                    <Message 
+                                        key={m._id}
+                                        from={m.from.username}
+                                        message={m.message}
+                                    />
+                                </>
+                                
                             ) : (
                                 <p>{ m }</p>
                             )

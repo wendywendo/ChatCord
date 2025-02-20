@@ -3,7 +3,7 @@ import { useState } from "react"
 import './Login.css'
 import { Link, useNavigate } from "react-router-dom"
 import toast from 'react-hot-toast';
-import { useAuth } from '../../context/UserContext'
+import { useAuth } from "../../context/UserContext";
 
 export default function Login() {
 
@@ -26,6 +26,7 @@ export default function Login() {
                 } else {
                     setEmail('')
                     setPassword('')
+                    console.log(data)
                     setUser(data)
                     navigate('/')
                 }
