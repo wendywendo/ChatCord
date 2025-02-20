@@ -8,7 +8,7 @@ import Navbar from './components/Navbar/Navbar'
 import Profile from './pages/Profile/Profile'
 import { Toaster } from 'react-hot-toast'
 
-axios.defaults.baseURL = 'https://chatcord-kyyy.onrender.com'
+axios.defaults.baseURL = import.meta.env.VITE_API_URL
 axios.defaults.withCredentials = true
 
 function App() {

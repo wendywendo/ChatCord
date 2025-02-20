@@ -6,8 +6,10 @@ import toast from 'react-hot-toast'
 
 function Profile() {
 
-    const { user, BACKEND_URL } = useContext(UserContext)
+    const { user } = useContext(UserContext)
     const [file, setFile] = useState(null)
+
+    const apiUrl = import.meta.env.VITE_API_URL
 
     const handleUpload = async (e) => {
         e.preventDefault()
@@ -17,7 +19,7 @@ function Profile() {
         formData.append("userId", user.id)
 
         try {
-            const {data} = await axios.post(`${BACKEND_URL}/upload-profile-pic`, formData, {
+            const {data} = await axios.post(`/upload-profile-pic`, formData, {
                 headers: {'Content-Type': 'multipart/form-data'}
             })
 
@@ -56,7 +58,7 @@ function Profile() {
                     <h1 className='profile-title'>PROFILE</h1>
 
                     <img 
-                        src={ `${BACKEND_URL}/profile-pic/${user.username}` } 
+                        src={ `${apiUrl}/profile-pic/${user.username}` } 
                         alt={ user.username }
                         className='profile-pic'
                     />

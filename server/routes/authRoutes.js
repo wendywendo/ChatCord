@@ -14,7 +14,7 @@ const upload = multer({ storage })
 
 // Middleware
 router.use(cors({
-    origin: 'https://chatcord-lemon.vercel.app',
+    origin: process.env.FRONTEND_URL,
     credentials: true
 }))
 

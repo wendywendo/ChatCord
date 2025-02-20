@@ -12,8 +12,6 @@ export function UserContextProvider({ children }) {
     const [messages, setMessages] = useState([])
     const [loadingMessages, setLoadingMessages] = useState(false)
 
-    const BACKEND_URL = 'https://chatcord-kyyy.onrender.com'
-
     const fetchMessages = async () => {
         setLoadingMessages(true)
         if (!activeRoom) return;
@@ -49,8 +47,7 @@ export function UserContextProvider({ children }) {
                 messages, 
                 setMessages, 
                 fetchMessages, 
-                loadingMessages,
-                BACKEND_URL
+                loadingMessages
         }}>
             { children }
         </UserContext.Provider>

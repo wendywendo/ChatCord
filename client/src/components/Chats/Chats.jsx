@@ -10,13 +10,15 @@ function Chats() {
 
     const { messages, setMessages, fetchMessages, loadingMessages } = useContext(UserContext)
 
-    const { activeRoom, BACKEND_URL } = useContext(UserContext)
+    const { activeRoom } = useContext(UserContext)
     const [message, setMessage] = useState('')
     const [typing, setTyping] = useState(false)
     const [typingUser, setTypingUser] = useState("")
     const inputRef = useRef(null)
     const messagesEndRef = useRef(null)
     let typingTimeout = useRef(null)
+
+    const apiUrl = import.meta.env.VITE_API_URL
 
 
     useEffect(() => {
@@ -146,7 +148,7 @@ function Chats() {
                         </div>
 
                         <img
-                            src={ `${BACKEND_URL}/profile-pic/${typingUser}` }
+                            src={ `${apiUrl}/profile-pic/${typingUser}` }
                             alt={ typingUser }
                         />
                     </div>
