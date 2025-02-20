@@ -11,10 +11,10 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';  
 import Typography from '@mui/material/Typography';
 import CloseIcon from '@mui/icons-material/Close';
-import { useContext, useState } from 'react';
-import { UserContext } from '../context/UserContext';
+import { useState } from 'react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import { useAuth } from '../context/UserContext';
 
 
 function EditRoomDialog({ open, setOpen, admin, members, setRooms, users, fetchRooms }) {
@@ -23,7 +23,7 @@ function EditRoomDialog({ open, setOpen, admin, members, setRooms, users, fetchR
         setOpen(false);
     };
 
-    const { activeRoom, user, setActiveRoom } = useContext(UserContext)
+    const { activeRoom, user, setActiveRoom } = useAuth()
 
     const [roomName, setRoomName] = useState(activeRoom)
     const [selectedOptions, setSelectedOptions] = useState({});

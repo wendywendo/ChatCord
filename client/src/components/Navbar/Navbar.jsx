@@ -1,8 +1,7 @@
 import axios from "axios";
 import { Link } from "react-router-dom";
 import './Navbar.css'
-import { useContext } from "react";
-import { UserContext } from "../../context/UserContext";
+import { useAuth } from "../../context/UserContext";
 import toast from 'react-hot-toast';
 
 export default function Navbar() {
@@ -16,14 +15,14 @@ export default function Navbar() {
         })
     }
 
-    const { user } = useContext(UserContext)
+    const { user } = useAuth()
 
   return (
     <nav className="chat-app">
         <div className="chat-header">
           <div className="appname">
             <div className="user-avatar">
-              <img src={`../../assets/send.png?height=40&width=40`} alt="Avatar" />
+              <img src={`/send.png?height=40&width=40`} alt="Avatar" />
             </div>
             <h1>ChatCord</h1>
           </div>

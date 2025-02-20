@@ -1,6 +1,6 @@
-import { useContext, useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import {socket} from "../../socket"
-import { UserContext } from "../../context/UserContext"
+import { useAuth } from "../../context/UserContext"
 import axios from "axios"
 import Message from "../Message"
 import { ThreeDots, TailSpin } from 'react-loader-spinner'
@@ -8,9 +8,7 @@ import './Chats.css'
 
 function Chats() {
 
-    const { messages, setMessages, fetchMessages, loadingMessages } = useContext(UserContext)
-
-    const { activeRoom } = useContext(UserContext)
+    const { messages, setMessages, fetchMessages, loadingMessages, activeRoom } = useAuth()
     const [message, setMessage] = useState('')
     const [typing, setTyping] = useState(false)
     const [typingUser, setTypingUser] = useState("")

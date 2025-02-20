@@ -1,13 +1,18 @@
 import axios from "axios"
 import { useState } from "react"
 import './Login.css'
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import toast from 'react-hot-toast';
+import { useAuth } from '../../context/UserContext'
 
 export default function Login() {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+
+    const { setUser } = useAuth()
+
+    const navigate = useNavigate()
 
     const loginUser = async (e) => {
         e.preventDefault()
@@ -21,7 +26,8 @@ export default function Login() {
                 } else {
                     setEmail('')
                     setPassword('')
-                    window.location.href = '/'
+                    setUser(data)
+                    navigate('/')
                 }
             },
             {

@@ -1,6 +1,6 @@
-import { useContext, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import axios from 'axios'
-import { UserContext } from "../../context/UserContext";
+import { useAuth } from "../../context/UserContext";
 import { useNavigate } from 'react-router-dom'
 import { FaEdit } from 'react-icons/fa'
 import { socket } from "../../socket";
@@ -10,7 +10,7 @@ import { toast } from 'react-hot-toast';
 
 function Rooms() {
 
-  const { setMessages } = useContext(UserContext)
+  const { setMessages } = useAuth()
 
   const [rooms, setRooms] = useState([])
   const [members, setMembers] = useState({})
@@ -18,7 +18,7 @@ function Rooms() {
   const [roomName, setRoomName] = useState('')
   const [users, setUsers] = useState([])
 
-  const { setActiveRoom, activeRoom } = useContext(UserContext)
+  const { setActiveRoom, activeRoom } = useAuth()
 
   const navigate = useNavigate()
 

@@ -1,8 +1,7 @@
 import axios from 'axios'
-import { createContext, useEffect, useState } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
 
-// eslint-disable-next-line react-refresh/only-export-components
-export const UserContext = createContext()
+const UserContext = createContext()
 
 // eslint-disable-next-line react/prop-types
 export function UserContextProvider({ children }) {
@@ -54,3 +53,6 @@ export function UserContextProvider({ children }) {
     )
 
 }
+
+// eslint-disable-next-line react-refresh/only-export-components
+export const useAuth = () => useContext(UserContext)

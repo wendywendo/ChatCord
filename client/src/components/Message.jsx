@@ -1,10 +1,9 @@
-import { useContext } from "react"
-import { UserContext } from "../context/UserContext"
+import { useAuth } from "../context/UserContext"
 
 // eslint-disable-next-line react/prop-types
 function Message({ from, message }) {
 
-    const { user } = useContext(UserContext)
+    const { user } = useAuth()
     const apiUrl = import.meta.env.VITE_API_URL
 
   return (

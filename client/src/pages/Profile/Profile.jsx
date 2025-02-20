@@ -1,12 +1,12 @@
-import { useContext, useState } from 'react'
+import { useState } from 'react'
 import './Profile.css'
-import { UserContext } from '../../context/UserContext'
+import { useAuth } from '../../context/UserContext'
 import axios from 'axios'
 import toast from 'react-hot-toast'
 
 function Profile() {
 
-    const { user } = useContext(UserContext)
+    const { user } = useAuth()
     const [file, setFile] = useState(null)
 
     const apiUrl = import.meta.env.VITE_API_URL
