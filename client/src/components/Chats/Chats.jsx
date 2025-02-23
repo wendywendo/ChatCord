@@ -152,6 +152,7 @@ function Chats() {
                         <img
                             src={ `${apiUrl}/profile-pic/${typingUser}` }
                             alt={ typingUser }
+                            onError={(e) => (e.target.src = "./profile.png")}
                         />
                     </div>
 

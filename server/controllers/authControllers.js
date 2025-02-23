@@ -117,7 +117,7 @@ const getProfile = async (req, res) => {
     const { token } = req.cookies
 
     if (!token) {
-        res.json(nul)
+        res.json(null)
     }
 
     jwt.verify(token, process.env.JWT_SECRET, {}, async (err, data) => {
@@ -139,8 +139,6 @@ const uploadProfilePic = async (req, res) => {
         
         const { userId } = req.body
 
-        console.log(userId)
-
         const user = await User.findById(userId)
         if (!user) {
             return res.json({ error: `User not found: ${userId}` })
@@ -153,6 +151,7 @@ const uploadProfilePic = async (req, res) => {
 
         res.json({ success: "Profile pic uploaded successfully!" })
     } catch (error) {
+        console.error(error)
         res.json({ error: 'Error uploading profile pic' })
     }   
 }

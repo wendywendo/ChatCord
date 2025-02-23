@@ -8,6 +8,7 @@ import Navbar from './components/Navbar/Navbar'
 import Profile from './pages/Profile/Profile'
 import { Toaster } from 'react-hot-toast'
 import ProtectedRoute from './ProtectedRoute'
+import RedirectRoute from './RedirectRoute'
 
 axios.defaults.baseURL = import.meta.env.VITE_API_URL
 axios.defaults.withCredentials = true
@@ -43,8 +44,17 @@ function App() {
           </ProtectedRoute>
         } />
 
-        <Route path='/login' element={<Login />} />
-        <Route path='/signup' element={<Signup />} />
+        <Route path='/login' element={
+          <RedirectRoute>
+            <Login />
+          </RedirectRoute>
+        } />
+
+        <Route path='/signup' element={
+          <RedirectRoute>
+            <Signup />
+          </RedirectRoute>
+        } />
       </Routes>
     </UserContextProvider>
   )

@@ -16,7 +16,7 @@ function Profile() {
 
         const formData = new FormData()
         formData.append("profilePic", file)
-        formData.append("userId", user.id)
+        formData.append("userId", user._id)
 
         try {
             const {data} = await axios.post(`/upload-profile-pic`, formData, {
