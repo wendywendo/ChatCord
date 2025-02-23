@@ -136,7 +136,7 @@ function Chats() {
                 typing && (
                     <div className="loading-container">
 
-                        <div className="loading">
+                        <div className="loading user">
                             <ThreeDots
                                 visible={true}
                                 height="30"
@@ -149,11 +149,6 @@ function Chats() {
                             />
                         </div>
 
-                        <img
-                            src={ `${apiUrl}/profile-pic/${typingUser}` }
-                            alt={ typingUser }
-                            onError={(e) => (e.target.src = "./profile.png")}
-                        />
                     </div>
 
                 )
