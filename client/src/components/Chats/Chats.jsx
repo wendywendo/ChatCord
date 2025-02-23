@@ -11,10 +11,12 @@ function Chats() {
     const { messages, setMessages, fetchMessages, loadingMessages, activeRoom, user } = useAuth()
     const [message, setMessage] = useState('')
     const [typing, setTyping] = useState(false)
-    const [setTypingUser] = useState("")
+    const [typingUser, setTypingUser] = useState("")
     const inputRef = useRef(null)
     const messagesEndRef = useRef(null)
     let typingTimeout = useRef(null)
+
+    const apiUrl = import.meta.env.VITE_API_URL
 
 
     useEffect(() => {
@@ -134,7 +136,13 @@ function Chats() {
                 typing && (
                     <div className="loading-container">
 
-                        <div className="loading user">
+                        <img
+                            src={ `${apiUrl}/profile-pic/${typingUser}` }
+                            alt={ typingUser }
+                            onError={(e) => (e.target.src = "./profile.png")}
+                        />
+
+                        <div className="loading">
                             <ThreeDots
                                 visible={true}
                                 height="30"
