@@ -2,9 +2,6 @@
 
 ChatCord is a real-time chat web application built with the MERN (MongoDB, Express, React, Node.js) stack, using Socket.io for WebSocket-based messaging and JWT for authentication.
 
-## Live Demo
-[ChatCord](https://chatcord-k1bi.onrender.com/)
-
 ## Tech Stack
 - **Frontend**: React, Vite
 - **Backend**: Node.js, Express
